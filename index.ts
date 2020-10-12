@@ -4,8 +4,8 @@ import router from './routes/router';
 import body from 'body-parser';
 import cors from 'cors';
 
-// instancion el server
-const server = new Server();
+// instancio el server con patron sigleton
+const server = Server.instance;
 
 // configuracion de body parser
 server.app.use(body.urlencoded({extended: true}));
