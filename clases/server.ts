@@ -34,13 +34,20 @@ export default class Server {
 
         // on = para escuchar algun evento emitido al conectarse un cliente
         this.io.on('connection', cliente => {
-            console.log('Cliente conectado');
+            //console.log('Cliente conectado');
+
+            // para conectar al cliente
+            socket.conectarCliente(cliente);
+
+            // para configurar los usuarios
+            socket.usuario(cliente, this.io);
 
             // mensajes recibidos
             socket.mensaje(cliente, this.io);
 
             // si el usuario una vez de conectado se desconecta, llamando la funcion de la otra clase 
             socket.desconectar(cliente);
+
         });
     }
 
